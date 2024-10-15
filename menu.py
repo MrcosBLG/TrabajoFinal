@@ -1,5 +1,2 @@
-
-from login import login
-login()
-
-
+stock = 000
+aa = 78
