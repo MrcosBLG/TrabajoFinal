@@ -14,11 +14,12 @@ def login():
    
     while contraseña != contraseña_valida:
         contraseña = input("la contraseña es incorrecta, intente con una contraseña valida: ")
+        
    
     if contraseña == contraseña_valida:
         print('usuario valido')
+        return True
     else:
         print("usuario invalido, intente denuevo")
-if __name__ == "__main__":
-    login()
+        return False
 
