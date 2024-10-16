@@ -1,6 +1,6 @@
 def login():
     
-    usuario = input('Escribe tu usuario =>')
+    usuario = input('Escribe tu usuario => ')
     usuario_valido = 'ucel123'
     
     while usuario!= usuario_valido: 
@@ -9,7 +9,7 @@ def login():
     if usuario  in usuario_valido:
         print('usuario valido, puedes continuar')
  
-    contraseña = input('ingresa tu contrasena =>')
+    contraseña = input('ingresa tu contrasena => ')
     contraseña_valida = "123"
    
     while contraseña != contraseña_valida:
