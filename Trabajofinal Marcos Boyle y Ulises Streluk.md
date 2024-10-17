@@ -9,6 +9,7 @@ Un repositor de stock ayuda a tener una gestion eficiente del inventario y el su
 Se nos ocurrio realizar un control de stock ya que creemos que con el conocimiento que adquirimos durante la cursada vamos a poder realizarlo.
 
 ### Modulos<br>
+-Login<br>
 -Productos<br>
 -Productos agotados<br>
 -Productos en stock<br>
@@ -25,7 +26,7 @@ En el menu se podran realizar las siguientes acciones :
   - Ver productos agotados<br>
   - Ingresar productos al inventario
   - Modificar productos
-  - Salir
+  - Volver al menu principal
   
 - Realizar una venta<br>
     
@@ -35,9 +36,10 @@ En el menu se podran realizar las siguientes acciones :
   - Cantidad de ventas realizadas<br>
   - Productos mas vendidos<br>
   - Productos menos vendidos<br>
-  - Salir
+  - Volver al menu principal
 - Ver informe de stock actual<br>
   - Consultar stock de un producto
+  - Volver al menu principal
 - Salir
 
 
