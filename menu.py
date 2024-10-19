@@ -34,7 +34,7 @@ while True:
                 
                 """)
             opcion1 = int(input("Que accion desea realizar: "))
-            while  opcion1 not in (1,2,3,4,5) : 
+            while  opcion1 not in (1,2,3,4,0) : 
                 opcion1 = int(input("No existe opcion para ese numero dentro del menu, porfavor introduzca un numero  compatible: "))
             if opcion1 == 1:
                 print(1)
@@ -48,7 +48,7 @@ while True:
             if opcion1 == 4:
                 print(4)
                 pass
-            if opcion1 == 5:
+            if opcion1 == 0:
                 break
         
         #Historial de movimientos
