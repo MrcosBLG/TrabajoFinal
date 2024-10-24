@@ -1,6 +1,6 @@
 
 from login import login
-
+from Funciones import agregarproductos
 if __name__ == "__main__":
     if login():
         pass
@@ -8,7 +8,7 @@ if __name__ == "__main__":
         login()
 menu = 0
 while True:
-    
+    csvdestock = 'stock.csv'
     print("---------------------------------------------------------------------------------------------------------------------------------------------------")
     print("Acciones del menu ")
     print("""
@@ -37,8 +37,10 @@ while True:
             while  opcion1 not in (1,2,3,4,0) : 
                 opcion1 = int(input("No existe opcion para ese numero dentro del menu, porfavor introduzca un numero  compatible: "))
             if opcion1 == 1:
-                print(1)
-                pass
+                nombre = input("Nombre: ")
+                stock = input("Stock: ")
+                precio = input("Precio: ")
+                agregarproductos(csvdestock,nombre, stock, precio)
             if opcion1 == 2:
                 print(2)
                 pass
