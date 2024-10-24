@@ -6,8 +6,10 @@ def agregarproductos(archivo, nombre, stock, precio):
         with open(archivo, 'a', newline='') as f:
          escritor_csv = csv.writer(f)
          escritor_csv.writerow([nombre, int(stock), str(precio)])
-    except: 
-        print('error')
+    except FileNotFoundError:
+        print("Archivo no encontrado")
+    except Exception as e:
+            print(f"error {e}")
         
 def buscar_producto(archivo, buscar):
     productos =[]
@@ -19,4 +21,13 @@ def buscar_producto(archivo, buscar):
                 productos.append([str(nombre), int(stock), float(precio)])
     print(tabulate(productos, headers=["Nombre", "Stock", "Precio"]))
             
+def inventario_stock(archivo):
+    with open(archivo, 'r', newline='') as f:
+        lector_csv = csv.reader(f)
+        productos = []
+        for fila in lector_csv:
+            nombre, stock, precio = fila
+            productos.append([str(nombre), int(stock), float(precio)])
+    print(tabulate(productos, headers=["Nombre", "Stock", "Precio"]))
+        
             
