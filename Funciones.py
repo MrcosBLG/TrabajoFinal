@@ -8,3 +8,15 @@ def agregarproductos(archivo, nombre, stock, precio):
          escritor_csv.writerow([nombre, int(stock), str(precio)])
     except: 
         print('error')
+        
+def buscar_producto(archivo, buscar):
+    productos =[]
+    with open(archivo, 'r', newline= '') as f:
+        lector_csv = csv.reader(f)
+        for fila in lector_csv:
+            nombre, stock, precio = fila
+            if buscar.lower() in nombre.lower():
+                productos.append([str(nombre), int(stock), float(precio)])
+    print(tabulate(productos, headers=["Nombre", "Stock", "Precio"]))
+            
+            
