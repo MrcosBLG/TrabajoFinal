@@ -1,6 +1,6 @@
 
 from login import login
-from Funciones import agregarproductos, buscar_producto
+from Funciones import agregarproductos, buscar_producto, inventario_stock
 if __name__ == "__main__":
     if login():
         pass
@@ -85,7 +85,7 @@ while True:
                 """)
             opcion3 = int(input("Que accion desea realizar: "))
             if opcion3 == 1:
-                pass
+                inventario_stock(csvdestock)
             if opcion3 == 2:
                 pass
             if opcion3 == 0:
