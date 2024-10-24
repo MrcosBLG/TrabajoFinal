@@ -1,6 +1,6 @@
 
 from login import login
-from Funciones import agregarproductos
+from Funciones import agregarproductos, buscar_producto
 if __name__ == "__main__":
     if login():
         pass
@@ -40,9 +40,10 @@ while True:
                 nombre = input("Nombre: ")
                 stock = input("Stock: ")
                 precio = input("Precio: ")
-                agregarproductos(csvdestock,nombre, stock, precio)
+                (csvdestock,nombre, stock, precio)
             if opcion1 == 2:
-                print(2)
+                buscar = input("Que producto desea buscar: ")
+                buscar_producto(csvdestock, buscar)
                 pass
             if opcion1 == 3:
                 print(3)
