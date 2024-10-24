@@ -40,7 +40,7 @@ while True:
                 nombre = input("Nombre: ")
                 stock = input("Stock: ")
                 precio = input("Precio: ")
-                (csvdestock,nombre, stock, precio)
+                agregarproductos(csvdestock,nombre, stock, precio)
             if opcion1 == 2:
                 buscar = input("Que producto desea buscar: ")
                 buscar_producto(csvdestock, buscar)
