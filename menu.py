@@ -32,6 +32,7 @@ while True:
                 [3] Ver productos agotados 
                 [4] Modificar productos
                 
+                
                 """)
             opcion1 = int(input("Que accion desea realizar: "))
             while  opcion1 not in (1,2,3,4,0) : 
