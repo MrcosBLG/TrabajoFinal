@@ -22,12 +22,17 @@ def buscar_producto(archivo, buscar):
     print(tabulate(productos, headers=["Nombre", "Stock", "Precio"]))
             
 def inventario_stock(archivo):
-    with open(archivo, 'r', newline='') as f:
-        lector_csv = csv.reader(f)
-        productos = []
-        for fila in lector_csv:
-            nombre, stock, precio = fila
-            productos.append([str(nombre), int(stock), float(precio)])
-    print(tabulate(productos, headers=["Nombre", "Stock", "Precio"]))
+    try:
+        with open(archivo, 'r', newline='') as f:
+            lector_csv = csv.reader(f)
+            productos = []
+            for indice, fila in enumerate(lector_csv, start=1):
+                nombre, stock, precio = fila
+                productos.append([indice, str(nombre), int(stock), float(precio)])
+        print(tabulate(productos, headers=["ID", "Nombre", "Stock", "Precio"]))
+    except FileNotFoundError:
+        print("Archivo no encontrado")
+    except Exception as e:
+        print(f"Error: {e}")
         
             
