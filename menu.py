@@ -16,7 +16,7 @@ while True:
     [1] Editar o modificar el inventario 
     [2] Historial de movimientos 
     [3] Ver informe de stock actual
-    [4] Realizar una venta
+    [3] Realizar una transaccion
     """)
     print("---------------------------------------------------------------------------------------------------------------------------------------------------")
     menu = int(input("Que accion desea realizar: "))
@@ -79,9 +79,9 @@ while True:
         while True:
             print("""
                 [0] Volver al menu principal
-                [1] Cantidad de ventas realizadas
-                [2] Producto mas vendido
-                [3] Producto menos vendido
+                [1] Historial de ventas
+                [2] Historial de compras
+                
                 """)
             opcion2 = int(input("Que accion desea realizar: "))
             while  opcion2 not in (0,1,2,3) :
@@ -90,8 +90,6 @@ while True:
                     pass
             if opcion2 == 2:
                     pass
-            if opcion2 == 3:
-                pass
             if opcion2 == 0:
                 break
         
@@ -102,21 +100,47 @@ while True:
                 [0] Volver al menu principal
                 [1] Ver informe del stock actual
                 [2] Consultar stock de un producto
+                [3] Ordenar por productos con más stock
+                [4] Ordenar por productos con menos stock
+                [5] Ver productos agotados
                 """)
             opcion3 = int(input("Que accion desea realizar: "))
+            while  opcion3 not in (0,1,2,3,4,5) :
+                opcion3 = int(input("No existe opcion para ese numero dentro del menu, porfavor introduzca un numero  compatible: "))
             if opcion3 == 1:
+                #Ver informe del stock actual
                 inventario_stock(csvdestock)
             if opcion3 == 2:
+                #Consultar stock de un producto
+                pass
+            if opcion3 == 3:
+                #Ordenar por productos con más stock
+                pass
+            if opcion3 == 4:
+                #Ordenar por productos con menos stock
+                pass
+            if opcion3 == 5:
+                #Ver productos agotados
                 pass
             if opcion3 == 0:
                 break
 
     if menu == 4:
         while True:
-            print(4)
+            print("""
+                [0] Volver al menu principal
+                [1] Realizar una compra
+                [2] Realizar una venta""")
+            
+            opcion4 = int(input("Que accion desea realizar: "))
+            while  opcion2 not in (0,1,2) :
+                opcion2 = int(input("No existe opcion para ese numero dentro del menu, porfavor introduzca un numero  compatible: "))
+            if opcion4 == 1:
+                pass
+            if opcion4 == 2:
+                pass
+            if opcion4 == 0:
+                break
             pass
 
-    if menu == 0:
-        print(0)
-        break
-
+    
