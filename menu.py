@@ -16,12 +16,14 @@ while True:
     [1] Editar o modificar el inventario 
     [2] Historial de movimientos 
     [3] Ver informe de stock actual
-    [3] Realizar una transaccion
+    [4] Realizar una transaccion
     """)
     print("---------------------------------------------------------------------------------------------------------------------------------------------------")
     menu = int(input("Que accion desea realizar: "))
     while  menu not in (0,1,2,3,4) : 
         menu = int(input("No existe opcion para ese numero dentro del menu, porfavor introduzca un numero  compatible: "))
+    if menu == 0:
+        break
         #EDITAR O MODIFICAR EL INVENTARIO 
     if menu == 1:
         while True:
@@ -52,10 +54,15 @@ while True:
                 eliminar_producto(csvdestock, eliminar)
                 pass
             if opcion1 == 4:
-                print(4)
+                inventario_stock(csvdestock)
+                print("""  
+                     """)
                 #EDITAR PRODUCTO
-                id_prod = int(input("Ingrese el id del producto que desea editar:"))
+                id_prod = int(input("Ingrese el id del producto que desea editar, o 0 para volver:")) #input number
+                if id_prod == 0:
+                    break  
                 editar_valor = int(input("Que valor desea editar? [1]Nombre [2]Stock [3]Precio: "))
+                
 
                 while editar_valor not in (0,1,2,3) :
                     editar_valor = int(input("No existe opcion para ese numero, por favor introduzca un numero compatible:")) #Si pones un numero q no sea 0 1 2 3 te pide que pongas numero valido
