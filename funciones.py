@@ -70,11 +70,11 @@ def agregar_producto(archivo, nombre, stock, precio):
                     # Agregar productos existentes que no coinciden con el nombre ingresado
                     productos.append([nombre_existente, stock_existente, precio_existente])
 
-        # Si el producto no existe en el archivo, agregarlo
+        # Si el producto no existe en el archivo, lo agrega
         if not producto_existente:
             productos.append([nombre, int(stock), precio])
 
-        # Escribir los cambios en el archivo
+        # Escrielos cambios en el archivo
         with open(archivo, 'w', newline='') as f:
             escritor_csv = csv.writer(f)
             escritor_csv.writerows(productos)
@@ -235,13 +235,13 @@ def registrar_compra(nombre, stock):
         print(f"Error al registrar la compra: {e}")
 
 def realizar_venta(archivo, nombre, cantidad_vendida):
-    nombre = nombre.lower()  # Convertir el nombre a minúsculas para la comparación
+    nombre = nombre.lower()  # Convierto el nombre a minúsculas para la comparación
     producto_existente = False
     productos = []
     venta_exitosa = False
     
     try:
-        # Leer el archivo CSV para verificar si el producto existe y tiene suficiente stock
+        # Leer el archivo CSV para chequear si el producto existe y si tiene suficiente stock
         with open(archivo, 'r', newline='') as f:
             lector_csv = csv.reader(f)
             for fila in lector_csv:
@@ -258,14 +258,14 @@ def realizar_venta(archivo, nombre, cantidad_vendida):
                         productos.append([nombre_existente, nuevo_stock, precio_existente])
                         venta_exitosa = True
                     else:
-                        # Si no hay suficiente stock o es 0, avisar al usuario
+                        # Si no hay suficiente stock o es 0, le aviso al usuario
                         print(f"No se puede realizar la venta. Stock disponible: {stock_existente}, solicitado: {cantidad_vendida}")
                         return
                 else:
-                    # Si no es el producto que buscamos, agregarlo tal cual
+                    # Si no es el producto que buscamos, se agrega tal cual
                     productos.append([nombre_existente, stock_existente, precio_existente])
 
-        # Si no existe el producto, informar al usuario
+        # Si no existe el producto, le informar al usuario
         if not producto_existente:
             print(f"Producto '{nombre}' no encontrado.")
             return
