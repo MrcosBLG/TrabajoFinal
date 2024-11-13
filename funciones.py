@@ -44,15 +44,48 @@ def inventario_stock_ordenado(archivo, orden=None, tock=None):
     except Exception as e:
         print(f"Error: {e}")
 
+import csv
+
 def agregar_producto(archivo, nombre, stock, precio):
+    nombre = nombre.lower()  # Convertir el nombre a minúsculas para la comparación
+    producto_existente = False
+    productos = []
+    
     try:
-        with open(archivo, 'a', newline='') as f:
+        # Leer el archivo CSV para verificar si el producto ya existe
+        with open(archivo, 'r', newline='') as f:
+            lector_csv = csv.reader(f)
+            for fila in lector_csv:
+                nombre_existente, stock_existente, precio_existente = fila
+                stock_existente = int(stock_existente)
+                precio_existente = float(precio_existente)
+                
+                # Comparar nombres ignorando mayúsculas/minúsculas
+                if nombre_existente.lower() == nombre:
+                    # Si el producto ya existe, actualizar el stock y el precio
+                    nuevo_stock = stock_existente + int(stock)
+                    productos.append([nombre_existente, nuevo_stock, precio])  # Actualizar con el nuevo precio
+                    producto_existente = True
+                else:
+                    # Agregar productos existentes que no coinciden con el nombre ingresado
+                    productos.append([nombre_existente, stock_existente, precio_existente])
+
+        # Si el producto no existe en el archivo, agregarlo
+        if not producto_existente:
+            productos.append([nombre, int(stock), precio])
+
+        # Escribir los cambios en el archivo
+        with open(archivo, 'w', newline='') as f:
             escritor_csv = csv.writer(f)
-            escritor_csv.writerow([nombre, int(stock), str(precio)])
+            escritor_csv.writerows(productos)
+
+        print("Producto agregado o actualizado correctamente.")
+    
     except FileNotFoundError:
-        print("Archivo no encontrado")
+        print("Archivo no encontrado.")
     except Exception as e:
         print(f"Error: {e}")
+
 
 def buscar_producto(archivo, nombre_buscar):
     try:
