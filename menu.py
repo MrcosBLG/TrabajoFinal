@@ -87,39 +87,43 @@ while True:
                 print("""  
                      """)
                 print("Ingrese [0] si desea cancelar la operacion")
-                id_prod = int(input("Ingrese el id del producto que desea editar "))
+                id_prod = int(input_number("Ingrese el id del producto que desea editar ","Debe ingresar un numero: "))
                 if id_prod == 0:
                    print("----------Operacion cancelada----------")
                    break
-                editar_valor = int(input("Que valor desea editar? [1]Nombre [2]Stock [3]Precio "))
+                editar_valor = int(input_number("Que valor desea editar? [1]Nombre [2]Stock [3]Precio ","Debe ingresar un numero: "))
  
                 while editar_valor not in (1,2,3) :
-                    editar_valor = int(input("No existe opcion para ese numero, por favor introduzca un numero compatible: "))
+                    editar_valor = int(input_number("No existe opcion para ese numero, por favor introduzca un numero compatible: ","Debe ingresar un numero: "))
 
                 if editar_valor == 1: # Nombre
                     nuevo_nombre = str(input("Ingrese el nuevo nombre: "))
                     editar_producto(archivoStock,id_prod,nuevo_nombre)
 
                 if editar_valor == 2: # Stock
-                    nuevo_stock = input("Ingrese el nuevo valor de stock: ")
+                    nuevo_stock = input_number("Ingrese el nuevo valor de stock: ","Debe ingresar un numero: ")
                     editar_producto(archivoStock,id_prod,None,nuevo_stock)
 
                 if editar_valor == 3: # Precio
-                    nuevo_precio = input("Ingrese el nuevo precio: ")
+                    nuevo_precio = input_number("Ingrese el nuevo precio: ","Debe ingresar un numero: ")
                     editar_producto(archivoStock,id_prod,None,None,nuevo_precio)
                 
 
             if opcion2 == 2:
                 nombre = input("Nombre: ")
-                stock = input("Stock: ")
-                precio = input("Precio: ")
+                stock = input_number("Stock: ","Debe ingresar un numero: ")
+                precio = input_number("Precio: ","Debe ingresar un numero: ")
                 agregar_producto(archivoStock,nombre,stock,precio)
 
             if opcion2 == 3:
                 inventario_stock(archivoStock)
                 print("""  
                      """)
-                eliminar = int(input("Ingrese el id del producto que desea eliminar: "))
+                eliminar = int(input_number("Ingrese el id del producto que desea eliminar: ","Debe ingresar un numero: "))
+                if eliminar == 0:
+                    print(("----------Operacion cancelada----------"))
+                    break
+                    
                 eliminar_producto(archivoStock, eliminar)
 
             
@@ -144,13 +148,13 @@ while True:
                 opcion3 = int(input_number("No existe opcion para ese numero dentro del menu, porfavor introduzca un numero  compatible: ","Opcion invalida, vuelva a intentar"))
             if opcion3 == 1:
                 comp_nombre = input("Nombre del producto: ")
-                comp_stock = int(input("Stock entrante: "))
-                comp_precio = int(input("Precio actual: "))
+                comp_stock = int(input_number("Stock entrante: "),"Debe ingresar un numero: ")
+                comp_precio = int(input_number("Precio actual: "),"Debe ingresar un numero: ")
                 realizar_compra(archivoStock,comp_nombre,comp_stock,comp_precio)
             if opcion3 == 2:
                 vent_nombre = input("Nombre del producto: ")
-                vent_stock = int(input("Stock saliente: "))
-                vent_precio = int(input("Precio de venta: "))
+                vent_stock = int(input_number("Stock saliente: ","Debe ingresar un numero: "))
+                
                 realizar_venta(archivoStock,vent_nombre,vent_stock)
             if opcion3 == 0:
                 break
